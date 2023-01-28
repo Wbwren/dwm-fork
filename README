@@ -3,6 +3,13 @@ dwm - dynamic window manager
 dwm is an extremely fast, small, and dynamic window manager for X.
 
 
+Patches Incldued in this fork:
+dwm-defaulttransparency
+dwm-pertag
+dwm-uselessgap
+dwm-attachbottom
+
+
 Requirements
 ------------
 In order to build dwm you need the Xlib header files.
