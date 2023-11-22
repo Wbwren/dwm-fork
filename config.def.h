@@ -1,7 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx  = 5;        /* border pixel of windows */
+static const unsigned int borderpx  = 8;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const unsigned int gappih    = 20;       /* horiz inner gap between windows */
 static const unsigned int gappiv    = 10;       /* vert inner gap between windows */
@@ -20,11 +20,11 @@ static const char col_cyan[]        = "#005577";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
+	[SchemeSel]  = { "#12a119", col_cyan,  "#12a119"  },
 };
 
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4", "5", "6" };
+static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -79,13 +79,6 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
-static const char *termcmd[]  = { "st", NULL };
-static const char *firefoxcmd[] = { "firefox", NULL };
-static const char *inclight[]  = { "xbacklight", "-inc", "10", NULL };
-static const char *declight[]  = { "xbacklight", "-dec", "10", NULL };
-static const char *upvol[] = {"amixer","-D","pulse","sset","Master","5%+",NULL};
-static const char *downvol[] = {"amixer","-D","pulse","sset","Master","5%-",NULL};
-static const char *mutevol[] = {"amixer","-D","pulse","sset","Master","0%",NULL};
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -128,13 +121,6 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
-	/* Custom Commands */
-	{ ControlMask,			XK_b,	   spawn,	   { .v = firefoxcmd } },
-	{ 0,                            XF86XK_MonBrightnessUp,     spawn,      {.v = inclight } },
-	{ 0,                            XF86XK_MonBrightnessDown,   spawn,      {.v = declight } },
-	{ 0,              		XF86XK_AudioLowerVolume,    spawn, 	{.v = downvol } },
-        { 0,                    	XF86XK_AudioMute, 	    spawn, 	{.v = mutevol } },
-        { 0,              		XF86XK_AudioRaiseVolume,    spawn, 	{.v = upvol   } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
